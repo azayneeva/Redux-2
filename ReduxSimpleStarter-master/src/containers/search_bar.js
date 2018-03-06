@@ -18,6 +18,8 @@ class SearchBar extends Component {
     event.preventDefault();
 
     // We need to go and fetch weather data
+    this.props.fetchWeather(this.state.term);
+    this.setState({ term: '' });
   };
 
   render() {
@@ -43,4 +45,5 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchWeather }, dispatch);
 }
 
+// null means that we don't pass a state here
 export default connect(null, mapDispatchToProps)(SearchBar);
